@@ -1,75 +1,25 @@
-/* General Reset and Base Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
-    line-height: 1.6;
-}
+// Get the button element by its ID
+const button = document.getElementById('magic-button');
 
-/* Header Styling */
-header {
-    background-color: #007bff;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+// Get the message area element by its ID
+const messageArea = document.getElementById('message-area');
 
-header h1 {
-    margin-bottom: 5px;
-}
+// Variable to track the click count
+let clickCount = 0;
 
-/* Main Content Styling */
-main {
-    padding: 20px;
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+// Add an event listener to the button
+button.addEventListener('click', function() {
+    // Increment the counter
+    clickCount++;
 
-.content h2 {
-    color: #007bff;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-}
-
-/* Button Styling */
-#magic-button {
-    background-color: #28a745; /* Green color */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s;
-}
-
-#magic-button:hover {
-    background-color: #218838;
-}
-
-/* JavaScript Target Styling */
-#message-area {
-    font-style: italic;
-    padding: 10px;
-    border-left: 5px solid #ffc107;
-    background-color: #fffbe6;
-    margin-top: 15px;
-}
-
-/* Footer Styling */
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #333;
-    color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
+    // Change the text content of the message area
+    messageArea.textContent = `Hello! You've clicked the button ${clickCount} time(s). JavaScript is working!`;
+    
+    // Optionally change the button text
+    button.textContent = 'Clicked!';
+    
+    // Reset button text after a short delay
+    setTimeout(() => {
+        button.textContent = 'Click Me';
+    }, 1000);
+});
